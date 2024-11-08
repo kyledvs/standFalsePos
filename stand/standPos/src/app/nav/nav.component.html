@@ -1,0 +1,31 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+        [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+        <mat-toolbar>Menu</mat-toolbar>
+        <mat-nav-list>
+            
+            <a mat-list-item (click)="toDash()"><img src="hub.png">Dashboard</a>
+            <a mat-list-item (click)="toAgenda()"><img src="agenda.png">Agenda</a>
+            <a mat-list-item (click)="toClients()"><img src="clients.png">Clients</a>
+            <a mat-list-item (click)="toDash()"><img src="inventory.png">Inventory</a>
+            <a mat-list-item (click)="toDash()"><img src="agenda.png">Checklists</a>
+            <a mat-list-item (click)="toDash()"><img src="clients.png">Repairs</a>
+            <a mat-list-item (click)="toDash()"><img src="clients.png">Invoicing</a>
+            <a mat-list-item (click)="toDash()"><img src="clients.png">Suppliers</a>
+            <a mat-list-item (click)="toDash()"><img src="clients.png">Day-End</a>
+            <a mat-list-item (click)="toDash()"><img src="clients.png">Internal Comms</a>
+
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">
+            @if (isHandset$ | async) {
+            <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+                <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+            </button>
+            }
+            <span>standPos</span>
+        </mat-toolbar>
+        <app-dash></app-dash>
+    </mat-sidenav-content>
+</mat-sidenav-container>
