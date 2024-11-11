@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+
+.ccard {
+    background-color: #1e1e1e;
+    width: 95%;
+    height: 95%;
+
+
+
+}
+
+
+mat-card-header {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

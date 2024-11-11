@@ -19,3 +19,8 @@
 .dashboard-card-content {
   text-align: center;
 }
+
+button {
+  background-color: rgba(0, 255, 255, 0.26);
+  border-radius: 2.5mm;
+}

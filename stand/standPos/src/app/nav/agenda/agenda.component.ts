@@ -1,4 +1,26 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+
+import { inject } from '@angular/core';
+import { Firestore, collectionData, collection, addDoc } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+
+import {
+  MatDialog,
+  MatDialogActions,
+  MatDialogClose,
+  MatDialogContent,
+  MatDialogRef,
+  MatDialogTitle,
+} from '@angular/material/dialog';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+
+interface AgendaInterface {
+  headClient: string,
+  longDesc: string,
+  shortDesc: string,
+  subjectItems: string,
+
+};
 
 @Component({
   selector: 'app-agenda',
@@ -7,4 +29,13 @@ import { Component } from '@angular/core';
 })
 export class AgendaComponent {
 
+  agenda$: Observable<AgendaInterface[]>;
+  firestore: Firestore = inject(Firestore);
+
+  constructor() {
+    const itemCollection = collection(this.firestore, 'agenda');
+    this.agenda$ = collectionData<AgendaInterface>(itemCollection);
+  }
+
 }
+

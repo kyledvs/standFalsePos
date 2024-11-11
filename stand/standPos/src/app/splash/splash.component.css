@@ -1,0 +1,5 @@
+.wrap {
+    background-image: url('/firstrender.png');
+    background-size: contain;
+    height: 100%;
+}

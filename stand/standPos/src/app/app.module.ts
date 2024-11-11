@@ -6,6 +6,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { firebaseConfig } from '../environment';
+
 
 import { MatButton, MatButtonModule } from '@angular/material/button';
 import { MatTooltip } from '@angular/material/tooltip';
@@ -18,6 +23,19 @@ import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { DashComponent } from './nav/dash/dash.component';
 import { MatMenuModule } from '@angular/material/menu';
+import { AgendaComponent } from './nav/agenda/agenda.component';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+
+import {
+  MatDialog,
+  MatDialogActions,
+  MatDialogClose,
+  MatDialogContent,
+  MatDialogRef,
+  MatDialogTitle,
+} from '@angular/material/dialog';
+
+import { getFirestore, provideFirestore,  } from '@angular/fire/firestore';
 
 
 
@@ -29,8 +47,15 @@ import { MatMenuModule } from '@angular/material/menu';
     AppComponent,
     NavComponent,
     DashComponent,
+    AgendaComponent,
+
+    
   ],
   imports: [
+
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
     BrowserModule,
     AppRoutingModule,
     MatButton, 
@@ -43,11 +68,17 @@ import { MatMenuModule } from '@angular/material/menu';
     BrowserAnimationsModule,
     MatCardModule,
     MatGridListModule,
-    MatMenuModule
+    MatMenuModule,
+    
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    provideFirebaseApp(() => initializeApp(firebaseConfig)),
+    provideFirestore(() => getFirestore()),
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+

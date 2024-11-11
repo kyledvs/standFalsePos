@@ -8,12 +8,12 @@
             <a mat-list-item (click)="toAgenda()"><img src="agenda.png">Agenda</a>
             <a mat-list-item (click)="toClients()"><img src="clients.png">Clients</a>
             <a mat-list-item (click)="toDash()"><img src="inventory.png">Inventory</a>
-            <a mat-list-item (click)="toDash()"><img src="agenda.png">Checklists</a>
-            <a mat-list-item (click)="toDash()"><img src="clients.png">Repairs</a>
-            <a mat-list-item (click)="toDash()"><img src="clients.png">Invoicing</a>
-            <a mat-list-item (click)="toDash()"><img src="clients.png">Suppliers</a>
-            <a mat-list-item (click)="toDash()"><img src="clients.png">Day-End</a>
-            <a mat-list-item (click)="toDash()"><img src="clients.png">Internal Comms</a>
+            <a mat-list-item (click)="toDash()"><img >Checklists</a>
+            <a mat-list-item (click)="toDash()"><img >Repairs</a>
+            <a mat-list-item (click)="toDash()"><img >Invoicing</a>
+            <a mat-list-item (click)="toDash()"><img >Suppliers</a>
+            <a mat-list-item (click)="toDash()"><img >Day-End</a>
+            <a mat-list-item (click)="toDash()"><img >Internal Comms</a>
 
         </mat-nav-list>
     </mat-sidenav>
@@ -26,6 +26,6 @@
             }
             <span>standPos</span>
         </mat-toolbar>
-        <app-dash></app-dash>
+        <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>

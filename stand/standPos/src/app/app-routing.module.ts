@@ -14,11 +14,11 @@ const routes: Routes = [
     path: 'hub', component: NavComponent, children: [
 
       {
-        path: '', component: DashComponent
+        path: '', component: AgendaComponent
       },
-      {
+      /*{
         path: 'agenda', component: AgendaComponent
-      },
+      }*/
 
       {
         path: 'clientss', component: ClientsComponent
