@@ -1,30 +1,52 @@
 <mat-sidenav-container class="sidenav-container">
     <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
         [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
-        <mat-toolbar>Menu</mat-toolbar>
+
+        <img style="width: 80%; margin-bottom: 5vh; margin-top: 3vh; margin-left: 2vh;" src="adenlogo.svg">
         <mat-nav-list>
-            
-            <a mat-list-item (click)="toDash()"><img src="hub.png">Dashboard</a>
-            <a mat-list-item (click)="toAgenda()"><img src="agenda.png">Agenda</a>
-            <a mat-list-item (click)="toClients()"><img src="clients.png">Clients</a>
-            <a mat-list-item (click)="toDash()"><img src="inventory.png">Inventory</a>
-            <a mat-list-item (click)="toDash()"><img >Checklists</a>
-            <a mat-list-item (click)="toDash()"><img >Repairs</a>
-            <a mat-list-item (click)="toDash()"><img >Invoicing</a>
-            <a mat-list-item (click)="toDash()"><img >Suppliers</a>
-            <a mat-list-item (click)="toDash()"><img >Day-End</a>
-            <a mat-list-item (click)="toDash()"><img >Internal Comms</a>
+
+            <div class="menuCenter" mat-list-item (click)="toDash()"><img class="sideIcon" src="hub.png">
+                <p>Dashboard</p>
+            </div>
+            <div class="menuCenter" mat-list-item (click)="toAgenda()"><img class="sideIcon" src="agenda.png">
+                <p>Agenda</p>
+            </div>
+            <div  class="menuCenter" mat-list-item (click)="toClients()"><img class="sideIcon" src="clients.png">
+                <p>Clients</p>
+            </div>
+            <div class="menuCenter" mat-list-item (click)="toDash()"><img class="sideIcon" src="inventory.png">
+                <p>Inventory</p>
+            </div>
+            <div class="menuCenter" mat-list-item (click)="toDash()"><img class="sideIcon" src="checlist.png">
+                <p>Checklists</p>
+            </div>
+            <div class="menuCenter" mat-list-item (click)="toDash()"><img class="sideIcon" src="repair.svg">
+                <p>Repairs</p>
+            </div>
+            <div class="menuCenter" mat-list-item (click)="toDash()"><img class="sideIcon" src="invoicing.png">
+                <p>Invoicing</p>
+            </div>
+            <div class="menuCenter" mat-list-item (click)="toDash()"><img class="sideIcon" src="supplier.svg">
+                <p>Suppliers</p>
+            </div>
+            <div class="menuCenter" mat-list-item (click)="toDash()"><img class="sideIcon" src="comms.svg">
+                <p>Internal Comms</p>
+            </div>
+            <div class="menuCenter" mat-list-item (click)="toDash()"><img class="sideIcon" src="daend.png">
+                <p>Day-End</p>
+            </div>
+
 
         </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
-        <mat-toolbar color="primary">
+        <mat-toolbar>
             @if (isHandset$ | async) {
             <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
                 <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
             </button>
             }
-            <span>standPos</span>
+            <span>{{ activeMenu }}</span><span style="width: 70vw;"></span><span><div style="width: 10vw; height: 5vh; background-color: rgba(215, 26, 239, 0.495); border-radius: 7mm;"></div></span>
         </mat-toolbar>
         <router-outlet></router-outlet>
     </mat-sidenav-content>

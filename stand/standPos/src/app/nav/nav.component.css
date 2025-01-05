@@ -15,3 +15,21 @@
     top: 0;
     z-index: 1;
 }
+
+
+.sideIcon {
+    width: 20%;
+    margin-left: 2vh;
+        margin-right: 2vh;
+}
+
+
+
+.menuCenter {
+    display: flex;
+    padding-bottom: 1vh;
+    
+}
+p{
+    padding-top: 1.25vh;
+}

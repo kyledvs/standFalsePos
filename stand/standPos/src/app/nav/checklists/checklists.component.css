@@ -1,0 +1,14 @@
+.ChecklistsWrap {
+    width: 100%;
+    height:calc(100vh - 2cm);
+ 
+}
+
+.example-card {
+    max-width: 400px;
+}
+
+.example-header-image {
+    background-color: rgba(127, 255, 212, 0.422);
+    background-size: cover;
+}

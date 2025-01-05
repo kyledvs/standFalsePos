@@ -13,6 +13,8 @@ import {
   MatDialogTitle,
 } from '@angular/material/dialog';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { NewAgendaDialogComponent } from './new-agenda-dialog/new-agenda-dialog.component';
 
 interface AgendaInterface {
   headClient: string,
@@ -37,5 +39,14 @@ export class AgendaComponent {
     this.agenda$ = collectionData<AgendaInterface>(itemCollection);
   }
 
+
+  readonly dialog = inject(MatDialog);
+
+  openDialog(): void {
+    this.dialog.open(NewAgendaDialogComponent);
+  }
+
 }
+
+
 

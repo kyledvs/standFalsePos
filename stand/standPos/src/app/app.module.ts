@@ -23,7 +23,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { DashComponent } from './nav/dash/dash.component';
 import { MatMenuModule } from '@angular/material/menu';
-import { AgendaComponent } from './nav/agenda/agenda.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+
+import { AgendaComponent, } from './nav/agenda/agenda.component';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 
 import {
@@ -31,11 +33,16 @@ import {
   MatDialogActions,
   MatDialogClose,
   MatDialogContent,
+  MatDialogModule,
   MatDialogRef,
   MatDialogTitle,
 } from '@angular/material/dialog';
 
 import { getFirestore, provideFirestore,  } from '@angular/fire/firestore';
+import { NewAgendaDialogComponent } from './nav/agenda/new-agenda-dialog/new-agenda-dialog.component';
+import { ChecklistsComponent } from './nav/checklists/checklists.component';
+
+
 
 
 
@@ -48,6 +55,9 @@ import { getFirestore, provideFirestore,  } from '@angular/fire/firestore';
     NavComponent,
     DashComponent,
     AgendaComponent,
+    ChecklistsComponent,
+    
+    
 
     
   ],
@@ -69,6 +79,8 @@ import { getFirestore, provideFirestore,  } from '@angular/fire/firestore';
     MatCardModule,
     MatGridListModule,
     MatMenuModule,
+    MatFormFieldModule,
+    
     
   ],
   providers: [
@@ -76,6 +88,7 @@ import { getFirestore, provideFirestore,  } from '@angular/fire/firestore';
     provideFirebaseApp(() => initializeApp(firebaseConfig)),
     provideFirestore(() => getFirestore()),
   ],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }

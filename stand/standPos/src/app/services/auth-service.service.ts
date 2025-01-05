@@ -10,6 +10,8 @@ export class AuthServiceService {
 
   constructor(private firestore: AngularFirestore) { }
 
+  getData(collection: "agenda"): Observable<any[]> { return this.firestore.collection(collection).valueChanges(); }
+
   
   getAgenda(): Observable<any[]> {
     return this.firestore.collection('agenda').valueChanges();
