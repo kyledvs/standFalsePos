@@ -14,13 +14,13 @@
             <div  class="menuCenter" mat-list-item (click)="toClients()"><img class="sideIcon" src="clients.png">
                 <p>Clients</p>
             </div>
-            <div class="menuCenter" mat-list-item (click)="toDash()"><img class="sideIcon" src="inventory.png">
+            <div class="menuCenter" mat-list-item (click)="toInventory()"><img class="sideIcon" src="inventory.png">
                 <p>Inventory</p>
             </div>
-            <div class="menuCenter" mat-list-item (click)="toDash()"><img class="sideIcon" src="checlist.png">
+            <div class="menuCenter" mat-list-item (click)="toChecklists()"><img class="sideIcon" src="checlist.png">
                 <p>Checklists</p>
             </div>
-            <div class="menuCenter" mat-list-item (click)="toDash()"><img class="sideIcon" src="repair.svg">
+            <div class="menuCenter" mat-list-item (click)="toReparo()"><img class="sideIcon" src="repair.svg">
                 <p>Repairs</p>
             </div>
             <div class="menuCenter" mat-list-item (click)="toDash()"><img class="sideIcon" src="invoicing.png">
@@ -29,7 +29,7 @@
             <div class="menuCenter" mat-list-item (click)="toDash()"><img class="sideIcon" src="supplier.svg">
                 <p>Suppliers</p>
             </div>
-            <div class="menuCenter" mat-list-item (click)="toDash()"><img class="sideIcon" src="comms.svg">
+            <div class="menuCenter" mat-list-item (click)="toInterna()"><img class="sideIcon" src="comms.svg">
                 <p>Internal Comms</p>
             </div>
             <div class="menuCenter" mat-list-item (click)="toDash()"><img class="sideIcon" src="daend.png">
@@ -46,7 +46,7 @@
                 <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
             </button>
             }
-            <span>{{ activeMenu }}</span><span style="width: 70vw;"></span><span><div style="width: 10vw; height: 5vh; background-color: rgba(215, 26, 239, 0.495); border-radius: 7mm;"></div></span>
+            <span>{{ activeMenu }}</span><span style="width: 70vw;"></span><span><div style="width: 10vw; background-color: rgba(215, 26, 239, 0.495); border-radius: 7mm; "><h2 style="margin: 1vw;">     user </h2></div></span>
         </mat-toolbar>
         <router-outlet></router-outlet>
     </mat-sidenav-content>

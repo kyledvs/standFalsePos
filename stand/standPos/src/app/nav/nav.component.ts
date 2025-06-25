@@ -4,6 +4,11 @@ import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { AuthServiceService } from '../services/auth-service.service';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { GlobalDataService } from '../services/global-data.service';
+
+
+
 
 @Component({
   selector: 'app-nav',
@@ -12,19 +17,35 @@ import { AuthServiceService } from '../services/auth-service.service';
 })
 export class NavComponent implements OnInit {
 
+
+
+  globAgendaData: any[] = [];
+
+
+
+  ngOnInit(): void {
+    this.globService.getCachedData('agenda').subscribe((res) => {
+      this.globAgendaData = res;
+      console.log(this.globAgendaData);
+    });
+  }
+
+ 
+
+
+
+
   dataF!: any[];
 
   activeMenu: string = "Dashboard";
 
-  constructor(public router: Router, private route: ActivatedRoute, private firestoreService: AuthServiceService) {
+  constructor(private firestore: AngularFirestore, public router: Router, private route: ActivatedRoute, private firestoreService: AuthServiceService, private globService: GlobalDataService ) {
+    
 
   }
   private breakpointObserver = inject(BreakpointObserver);
 
-  ngOnInit(): void {
-    this.firestoreService.getData('agenda').subscribe(data => {
-      this.dataF = data; });
-    console.log("nav componentfgyj", this.dataF)}
+
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -35,7 +56,7 @@ export class NavComponent implements OnInit {
     
 
   toDash() {
-    this.router.navigate(['hub'], { relativeTo: this.route });;
+    this.router.navigate(['dashh'], { relativeTo: this.route });;
     this.activeMenu = "Dashboard";
 
   }
@@ -52,9 +73,29 @@ export class NavComponent implements OnInit {
 
   }
 
+  toInterna() {
+    this.router.navigate(['internCom'], { relativeTo: this.route });;
+    this.activeMenu = "Interna";
+
+  }
+
   toChecklists() {
-    this.router.navigate(['checklists'], { relativeTo: this.route });;
+    this.router.navigate(['procedList'], { relativeTo: this.route });;
     this.activeMenu = "Checklists";
+
+  }
+
+  toInventory() {
+
+    this.router.navigate(['inventor'], { relativeTo: this.route });;
+    this.activeMenu = "Inventory";
+
+  }
+
+  toReparo() {
+
+    this.router.navigate(['repairs'], { relativeTo: this.route });;
+    this.activeMenu = "repairs";
 
   }
 

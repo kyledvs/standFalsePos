@@ -11,9 +11,10 @@
             <p>
                 Create or update global checklists
             </p>
+            <div *ngFor="let items of items | async"><p>{{ items.checklistName }}</p></div>
         </mat-card-content>
         <mat-card-actions>
-            <button mat-button>New List</button>
+            <button mat-button (click)="openDialog()">New List</button>
             <button mat-button>Edit List</button>
         </mat-card-actions>
     </mat-card>

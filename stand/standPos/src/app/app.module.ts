@@ -24,6 +24,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { DashComponent } from './nav/dash/dash.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
 
 import { AgendaComponent, } from './nav/agenda/agenda.component';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
@@ -41,9 +43,20 @@ import {
 import { getFirestore, provideFirestore,  } from '@angular/fire/firestore';
 import { NewAgendaDialogComponent } from './nav/agenda/new-agenda-dialog/new-agenda-dialog.component';
 import { ChecklistsComponent } from './nav/checklists/checklists.component';
+import { NewChecklistDialogComponent } from './nav/checklists/new-checklist-dialog/new-checklist-dialog.component';
+import { SplashComponent } from './splash/splash.component';
+import { provideHttpClient, withFetch } from '@angular/common/http';
+import { InternacomsComponent } from './nav/internacoms/internacoms.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { UploadrepairxlsComponent } from './nav/repairs/uploadrepairxls/uploadrepairxls.component';
+import { RepairsComponent } from './nav/repairs/repairs.component';
+import { RepairlistComponent } from './nav/repairs/repairlist/repairlist.component';
 
 
 
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 
 
@@ -56,6 +69,11 @@ import { ChecklistsComponent } from './nav/checklists/checklists.component';
     DashComponent,
     AgendaComponent,
     ChecklistsComponent,
+    SplashComponent,
+    InternacomsComponent,
+    RepairsComponent,
+    UploadrepairxlsComponent,
+    RepairlistComponent,
     
     
 
@@ -80,10 +98,19 @@ import { ChecklistsComponent } from './nav/checklists/checklists.component';
     MatGridListModule,
     MatMenuModule,
     MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+
+
     
     
   ],
   providers: [
+    
+    
     provideClientHydration(),
     provideFirebaseApp(() => initializeApp(firebaseConfig)),
     provideFirestore(() => getFirestore()),

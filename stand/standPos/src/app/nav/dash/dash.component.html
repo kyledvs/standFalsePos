@@ -1,5 +1,4 @@
 <div class="grid-container">
-  <h1 class="mat-h1">Dashboard</h1>
   <mat-grid-list cols="2" rowHeight="240px">
     @for (card of cards | async; track card) {
       <mat-grid-tile [colspan]="card.cols" [rowspan]="card.rows">
@@ -18,6 +17,9 @@
           </mat-card-header>
           <mat-card-content class="dashboard-card-content">
             <div>Card Content Here</div>
+
+            <div><h1 >{{ documentCount }}</h1></div>
+            
           </mat-card-content>
         </mat-card>
       </mat-grid-tile>

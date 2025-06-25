@@ -1,1 +1,30 @@
-<p>internacoms works!</p>
+<form [formGroup]="createPriceForm">
+
+    <div>
+
+        <mat-form-field appearance="outline">
+            <mat-label>lab</mat-label>
+            <input matInput id="priceLabl" formControlName="priceLabl">
+        </mat-form-field>
+    </div>
+
+
+
+
+
+    <button mat-button (click)="save(createPriceForm)" cdkFocusInitial>Ok</button>
+
+
+
+
+
+</form>
+
+<div *ngIf="internacoms$ | async as internacoms">
+
+            <div>
+                <p *ngFor="let item of internacoms">{{ item.priceLabl }},</p>
+             
+            </div>
+      
+</div>
