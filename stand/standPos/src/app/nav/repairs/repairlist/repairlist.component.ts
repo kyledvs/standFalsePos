@@ -20,7 +20,7 @@ export class RepairlistComponent implements OnInit {
 
 
   reparos: any[] = [];
-  displayedColumns: string[] = ['jobId', 'status', 'technician', 'date'];
+  displayedColumns: string[] = ['Job', 'Stock Code', 'Name', 'Current Branch', 'Phone 1' ];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -31,7 +31,7 @@ export class RepairlistComponent implements OnInit {
     this.firestore.collection('reparo').valueChanges().subscribe(data => {
       if (data.length > 0) {
         this.reparos = data;
-        this.displayedColumns = Object.keys(data[0] as object); // 💡 Get keys from first doc
+        //this.displayedColumns = Object.keys(data[0] as object); // 💡 Get keys from first doc
         this.dataSource = new MatTableDataSource(this.reparos);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;

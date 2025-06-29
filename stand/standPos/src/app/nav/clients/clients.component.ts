@@ -6,9 +6,15 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { inject } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { Router } from '@angular/router';
+
+import {  ViewChild } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-clients',

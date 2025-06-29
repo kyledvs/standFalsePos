@@ -57,6 +57,9 @@ import { RepairlistComponent } from './nav/repairs/repairlist/repairlist.compone
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { ClientsComponent } from './nav/clients/clients.component';
+
+
 
 
 
@@ -74,6 +77,7 @@ import { MatSortModule } from '@angular/material/sort';
     RepairsComponent,
     UploadrepairxlsComponent,
     RepairlistComponent,
+    ClientsComponent,
     
     
 
