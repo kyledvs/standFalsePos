@@ -1,16 +1,67 @@
-<div>
-    <button mat-flat-button>Add Client</button>
-    <!--<form [formGroup]="agendaForm" (ngSubmit)="addAgenda()">
-        <input formControlName="title" placeholder="Title" required>
-        <textarea formControlName="content" placeholder="Content" required></textarea>
-        <button type="submit">Add Post</button>
-    </form>
-  <ul>
-        @for(let agenda of agendas | async; track $index){
-        <li>
-            <h2>{{ post.title }}</h2>
-            <p>{{ post.content }}</p>
-        </li>
-        }
-    </ul>-->
-</div>
+<!--<div>
+    <div class="file-drop" (dragover)="onDragOver($event)" (drop)="onDrop($event)" (dragleave)="onDragLeave($event)">
+        <p *ngIf="!selectedFile">Drag & drop a file here, or <label for="fileInput" class="upload-link">browse</label></p>
+        <p *ngIf="selectedFile">{{ selectedFile.name }}</p>
+        <input type="file" id="fileInput" (change)="onFileSelected($event)" hidden />
+    </div>
+</div><div class="customer-container">
+    <h2>Customer List</h2>
+    <ul>
+        <mat-card>
+            
+        
+            <mat-list>
+                <mat-list-item *ngFor="let c of customers">
+                    <div mat-line>{{ c.name }} ({{ c.email }})</div>
+                    <button mat-icon-button color="warn" (click)="deleteCustomer(c.id)" aria-label="Delete customer">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </mat-list-item>
+            </mat-list>
+        
+            <form [formGroup]="customerForm" (ngSubmit)="addCustomer()">
+                <mat-form-field appearance="outline" class="form-field">
+                    <mat-label>Name</mat-label>
+                    <input matInput formControlName="name" />
+                </mat-form-field>
+        
+                <mat-form-field appearance="outline" class="form-field">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email" />
+                </mat-form-field>
+        
+                <button mat-raised-button color="primary" type="submit" [disabled]="customerForm.invalid">
+                    Add Customer
+                </button>
+            </form>
+        </mat-card>
+        <form (ngSubmit)="onInsert()">
+            <label>Name:</label>
+            <input [(ngModel)]="name" name="name" required />
+        
+            <label>Age:</label>
+            <input type="number" [(ngModel)]="age" name="age" required />
+        
+            <button type="submit">Insert</button>
+        </form>-->
+<div style="width: 50%; margin: 2.5%;"><form (ngSubmit)="onInsert()" class="customer-form">
+            <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Name</mat-label>
+                <input matInput [(ngModel)]="name" name="name" required />
+            </mat-form-field>
+        
+            <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Contact</mat-label>
+                <input matInput type="number" [(ngModel)]="contact" name="contact" required />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Email</mat-label>
+                <input matInput type="number" [(ngModel)]="email" name="age" required />
+            </mat-form-field>
+        
+            <button mat-raised-button color="primary" type="submit">
+                Submit
+            </button>
+        </form></div>
+        

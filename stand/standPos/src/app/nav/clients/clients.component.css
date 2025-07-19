@@ -1,0 +1,35 @@
+.file-drop {
+    border: 2px dashed #888;
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+
+    background-color: #f9f9f942;
+    transition: border-color 0.3s ease;
+}
+
+.file-drop:hover {
+    border-color: #0078d7;
+}
+
+.upload-link {
+    color: #5ab5ff;
+    text-decoration: underline;
+    cursor: pointer; }
+
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+
+
+mat-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

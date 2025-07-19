@@ -1,1 +1,25 @@
-<p>inventory works!</p>
+<!-- stock-items.component.html -->
+<div [formGroup]="stockForm">
+<div style="width: 50%; margin: 2.5%;">
+    <form (ngSubmit)="submitItems()" class="customer-form">
+        <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Name</mat-label>
+            <input matInput [(ngModel)]="sku" name="sku" required />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Contact</mat-label>
+            <input matInput type="number" [(ngModel)]="description" name="description" required />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Email</mat-label>
+            <input matInput type="number" [(ngModel)]="price_vat_incl" name="price_vat_incl" required />
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit">
+            Submit
+        </button>
+    </form>
+</div>
+</div>

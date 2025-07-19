@@ -1,2 +1,52 @@
 
-<app-repairlist></app-repairlist><app-uploadrepairxls></app-uploadrepairxls>
+<form [formGroup]="repairForm" (ngSubmit)="submitRepair()">
+
+    <mat-form-field appearance="outline">
+        <mat-label>Client</mat-label>
+        <mat-select formControlName="client_id">
+            <mat-option *ngFor="let client of clients" [value]="client.id">
+                {{ client.name }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    
+
+    <mat-form-field appearance="outline">
+        <mat-label>SKU</mat-label>
+        <mat-select formControlName="stock_item_sku">
+            <mat-option *ngFor="let item of stockItems" [value]="item.sku">{{ item.description }}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Serial Number</mat-label>
+        <input matInput formControlName="serial_number">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Issue</mat-label>
+        <textarea matInput formControlName="issue_description"></textarea>
+    </mat-form-field>
+
+ 
+
+  
+
+    <mat-form-field appearance="outline">
+        <mat-label>Repair Notes</mat-label>
+        <textarea matInput formControlName="repair_notes"></textarea>
+    </mat-form-field>
+    
+
+    <button mat-raised-button color="primary" [disabled]="repairForm.invalid">Save Repair</button>
+</form>
+
+
+<app-repairlist>
+
+    
+
+</app-repairlist><app-uploadrepairxls>
+    
+</app-uploadrepairxls>

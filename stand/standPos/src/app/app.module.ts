@@ -45,9 +45,9 @@ import { NewAgendaDialogComponent } from './nav/agenda/new-agenda-dialog/new-age
 import { ChecklistsComponent } from './nav/checklists/checklists.component';
 import { NewChecklistDialogComponent } from './nav/checklists/new-checklist-dialog/new-checklist-dialog.component';
 import { SplashComponent } from './splash/splash.component';
-import { provideHttpClient, withFetch } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { InternacomsComponent } from './nav/internacoms/internacoms.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UploadrepairxlsComponent } from './nav/repairs/uploadrepairxls/uploadrepairxls.component';
 import { RepairsComponent } from './nav/repairs/repairs.component';
 import { RepairlistComponent } from './nav/repairs/repairlist/repairlist.component';
@@ -58,6 +58,14 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { ClientsComponent } from './nav/clients/clients.component';
+
+import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
+import { InventoryComponent } from './nav/inventory/inventory.component';
+
+
 
 
 
@@ -78,6 +86,7 @@ import { ClientsComponent } from './nav/clients/clients.component';
     UploadrepairxlsComponent,
     RepairlistComponent,
     ClientsComponent,
+    InventoryComponent,
     
     
 
@@ -86,6 +95,7 @@ import { ClientsComponent } from './nav/clients/clients.component';
   imports: [
 
     AngularFireModule.initializeApp(firebaseConfig),
+    HttpClientModule,
     AngularFireAuthModule,
     AngularFirestoreModule,
     BrowserModule,
@@ -107,7 +117,11 @@ import { ClientsComponent } from './nav/clients/clients.component';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-
+    FormsModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
 
     
     
@@ -116,6 +130,7 @@ import { ClientsComponent } from './nav/clients/clients.component';
     
     
     provideClientHydration(),
+    { provide: MAT_DATE_LOCALE, useValue: 'en-ZA' },  // Optional: South African locale
     provideFirebaseApp(() => initializeApp(firebaseConfig)),
     provideFirestore(() => getFirestore()),
   ],
