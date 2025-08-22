@@ -2,7 +2,7 @@
 <h2>Agenda</h2>
 
 <div><mat-grid-list cols="6" rowHeight="5:3">
-        <mat-grid-tile><button mat-flat-button cdkFocusInitial>New Agenda</button>
+        <mat-grid-tile><button mat-flat-button cdkFocusInitial (click)="openDialog()">New Agenda</button>
 
             <div class="desktop"><mat-grid-list cols="6" rowHeight="5:3">
                     <mat-grid-tile><button class="newButton" mat-flat-button cdkFocusInitial (click)="openDialog()">New

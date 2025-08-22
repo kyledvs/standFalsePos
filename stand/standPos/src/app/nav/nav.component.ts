@@ -61,6 +61,12 @@ export class NavComponent implements OnInit {
 
   }
 
+  toDayEnd() {
+    this.router.navigate(['dayEnd'], { relativeTo: this.route });;
+    this.activeMenu = "Day";
+
+  }
+
   toAgenda() {
     this.router.navigate(['agenda'], { relativeTo: this.route });;
 
@@ -79,6 +85,12 @@ export class NavComponent implements OnInit {
 
   }
 
+  toInvoicing() {
+    this.router.navigate(['invoicing'], { relativeTo: this.route });;
+    this.activeMenu = "Invoicing";
+
+  }
+
   toChecklists() {
     this.router.navigate(['procedList'], { relativeTo: this.route });;
     this.activeMenu = "Checklists";
@@ -89,6 +101,13 @@ export class NavComponent implements OnInit {
 
     this.router.navigate(['inventor'], { relativeTo: this.route });;
     this.activeMenu = "Inventory";
+
+  }
+
+  toSuppliers() {
+
+    this.router.navigate(['supplier'], { relativeTo: this.route });;
+    this.activeMenu = "Suppliers";
 
   }
 

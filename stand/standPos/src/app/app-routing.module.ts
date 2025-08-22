@@ -11,6 +11,7 @@ import { RepairsComponent } from './nav/repairs/repairs.component';
 import { BillingComponent } from './nav/billing/billing.component';
 import { DayEndComponent } from './nav/day-end/day-end.component';
 import { InternacomsComponent } from './nav/internacoms/internacoms.component';
+import { SuppliersComponent } from './nav/suppliers/suppliers.component';
 
 const routes: Routes = [
   { path: '', component: SplashComponent },
@@ -23,7 +24,7 @@ const routes: Routes = [
         path: '', component: DashComponent
       },
       {
-        path: 'agenda', component: InternacomsComponent
+        path: 'agenda', component: AgendaComponent
       },
 
       {
@@ -49,6 +50,9 @@ const routes: Routes = [
       },
       {
         path: 'dayEnd', component: DayEndComponent
+      },
+      {
+        path: 'supplier', component: SuppliersComponent
       },
   
 

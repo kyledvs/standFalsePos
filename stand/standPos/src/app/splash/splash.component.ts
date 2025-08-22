@@ -26,6 +26,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatInputModule } from '@angular/material/input';
 
 import { Observable } from 'rxjs';
+import { CreateUserDialogComponent } from '../globaldialogs/create-user-dialog/create-user-dialog.component';
 
 @Component({
   selector: 'app-splash',
@@ -34,6 +35,7 @@ import { Observable } from 'rxjs';
   styleUrl: './splash.component.css'
 })
 export class SplashComponent {
+ 
 
 
   
@@ -57,5 +59,14 @@ export class SplashComponent {
     this.router.navigate(['/hub']);
 
   }
+
+  readonly dialog = inject(MatDialog);
+
+
+  openCreateEmployee(): void {
+    this.dialog.open(CreateUserDialogComponent);
+    }
+
+ 
 
 }

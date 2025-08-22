@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { Firestore, collection, addDoc, collectionData } from '@angular/fire/firestore';
+import { Firestore, collection, addDoc, collectionData, deleteDoc, doc, getDocs } from '@angular/fire/firestore';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 
@@ -51,5 +51,13 @@ export class InternacomsComponent {
 
     });
     this.createPriceForm.reset();
+  }
+
+  async clearAllInternacoms() {
+    const internacomsCollection = collection(this.firestore, 'internacoms');
+    const snapshot = await getDocs(internacomsCollection);
+    const deletePromises = snapshot.docs.map(d => deleteDoc(doc(this.firestore, 'internacoms', d.id)));
+    await Promise.all(deletePromises);
+    alert('All internacoms deleted!');
   }
 }

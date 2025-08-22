@@ -20,6 +20,8 @@
 
 </form>
 
+<!-- Add this to internacoms.component.html -->
+
 <div *ngIf="internacoms$ | async as internacoms">
 
             <div>
@@ -27,4 +29,4 @@
              
             </div>
       
-</div>
+</div><button mat-raised-button color="warn" (click)="clearAllInternacoms()">Clear All</button>

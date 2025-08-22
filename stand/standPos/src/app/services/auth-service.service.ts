@@ -7,6 +7,13 @@ import { Observable } from 'rxjs';
 })
 export class AuthServiceService {
 
+  getEmployee(): Observable<any[]> {
+    return this.firestore.collection('employee').valueChanges();
+  }
+  addEmployee(employee: any) {
+    return this.firestore.collection('employee').add(employee);
+  }
+
 
   constructor(private firestore: AngularFirestore) { }
 

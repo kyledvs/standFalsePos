@@ -64,6 +64,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
 import { InventoryComponent } from './nav/inventory/inventory.component';
+import { SuppliersComponent } from './nav/suppliers/suppliers.component';
+import { CreateRepairDialogComponentComponent } from './nav/repairs/create-repair-dialog-component/create-repair-dialog-component.component';
+import { CreateUserDialogComponent } from './globaldialogs/create-user-dialog/create-user-dialog.component';
 
 
 
@@ -87,20 +90,22 @@ import { InventoryComponent } from './nav/inventory/inventory.component';
     RepairlistComponent,
     ClientsComponent,
     InventoryComponent,
+    SuppliersComponent,
+    CreateRepairDialogComponentComponent,
+    CreateUserDialogComponent,
     
     
 
     
   ],
   imports: [
-
     AngularFireModule.initializeApp(firebaseConfig),
     HttpClientModule,
     AngularFireAuthModule,
     AngularFirestoreModule,
     BrowserModule,
     AppRoutingModule,
-    MatButton, 
+    MatButton,
     MatTooltip,
     MatButtonModule,
     MatIconModule,
@@ -122,10 +127,8 @@ import { InventoryComponent } from './nav/inventory/inventory.component';
     MatCheckboxModule,
     MatDatepickerModule,
     MatNativeDateModule,
-
-    
-    
-  ],
+    MatDialogActions
+],
   providers: [
     
     
