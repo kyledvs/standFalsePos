@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 
@@ -7,6 +7,7 @@ interface AgendaInterface {
   name: string,
   password: string,
   branch: number,
+  confirmedAs: string,
  
 
 };
@@ -17,10 +18,12 @@ interface AgendaInterface {
   templateUrl: './create-user-dialog.component.html',
   styleUrl: './create-user-dialog.component.css'
 })
-export class CreateUserDialogComponent {
+export class CreateUserDialogComponent  {
   userForm: FormGroup;
   branches: number[] = Array.from({ length: 91 }, (_, i) => i + 1);
   createAgendaForm!: FormGroup;
+
+ 
 
   constructor(
     private fb: FormBuilder,
@@ -30,7 +33,8 @@ export class CreateUserDialogComponent {
     this.userForm = this.fb.group({
       name: ['', Validators.required],
       password: ['', Validators.required],
-      branch: [null, Validators.required]
+      branch: [null, Validators.required], confirmedAs: ['pending'],
+
     });
 
   }
@@ -43,5 +47,11 @@ export class CreateUserDialogComponent {
       this.dialogRef.close(userData);
     }
   }
+
+  // ...existing code...
+  cancel(): void {
+    this.dialogRef.close();
+  }
+  // ...existing code...
 
 }

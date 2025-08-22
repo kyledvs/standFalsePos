@@ -67,6 +67,7 @@ import { InventoryComponent } from './nav/inventory/inventory.component';
 import { SuppliersComponent } from './nav/suppliers/suppliers.component';
 import { CreateRepairDialogComponentComponent } from './nav/repairs/create-repair-dialog-component/create-repair-dialog-component.component';
 import { CreateUserDialogComponent } from './globaldialogs/create-user-dialog/create-user-dialog.component';
+import { StaffComponent } from './nav/staff/staff.component';
 
 
 
@@ -93,6 +94,7 @@ import { CreateUserDialogComponent } from './globaldialogs/create-user-dialog/cr
     SuppliersComponent,
     CreateRepairDialogComponentComponent,
     CreateUserDialogComponent,
+    StaffComponent,
     
     
 
@@ -127,7 +129,8 @@ import { CreateUserDialogComponent } from './globaldialogs/create-user-dialog/cr
     MatCheckboxModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatDialogActions
+    MatDialogActions,
+    MatDialogContent
 ],
   providers: [
     

@@ -85,6 +85,12 @@ export class NavComponent implements OnInit {
 
   }
 
+  toStaff() {
+    this.router.navigate(['staff'], { relativeTo: this.route });;
+    this.activeMenu = "Staff";
+
+  }
+
   toInvoicing() {
     this.router.navigate(['invoicing'], { relativeTo: this.route });;
     this.activeMenu = "Invoicing";

@@ -44,6 +44,7 @@ export class NewAgendaDialogComponent {
   createAgendaForm!: FormGroup;
 
   agendas!: Observable<any[]>;
+  dialogRef: any;
 
   constructor(
     public dialog: MatDialog,
@@ -73,6 +74,8 @@ export class NewAgendaDialogComponent {
 
     console.log(this.createAgendaForm.value);
     console.log('gytf');
+    this.dialogRef.close(formData);
+
   }
 
 }

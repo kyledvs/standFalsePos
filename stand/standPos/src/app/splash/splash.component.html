@@ -4,22 +4,40 @@
 
         <div class="blockleft">
             <div class="logoBlock">
+        <img style="width: 100%;" src="adenlogo.svg">
 
             </div>
         </div>
 
 
         <div class="blockRight">
-            <div class="module-border-wrap">
+            
                 <div style="display: flex; flex-direction: column;">
+
+                    <!-- Material Login Form -->
+                    <form autocomplete="off" [formGroup]="loginForm" (ngSubmit)="onLogin()" autocomplete="off">
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Username</mat-label>
+                            <input matInput formControlName="username" autocomplete="off" />
+                        </mat-form-field>
+                    
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Password</mat-label>
+                            <input matInput type="password" formControlName="password" autocomplete="new-password" />
+                        </mat-form-field>
+                    
+                        <button mat-flat-button color="primary" type="submit" [disabled]="loginForm.invalid">
+                            Login
+                        </button>
+                    </form>
 
 
                     <button mat-flat-button (click)="toAdmin()">Sign In</button>
-                                        <button mat-flat-button (click)="openCreateEmployee()">Request Credentials</button>
+                    <button mat-flat-button (click)="openCreateEmployee()">Request Credentials</button>
 
                 </div>
 
-            </div>
+           
 
 
         </div>

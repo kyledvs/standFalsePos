@@ -11,7 +11,7 @@ export class AuthServiceService {
     return this.firestore.collection('employee').valueChanges();
   }
   addEmployee(employee: any) {
-    return this.firestore.collection('employee').add(employee);
+    return this.firestore.collection('employeePending').add(employee);
   }
 
 

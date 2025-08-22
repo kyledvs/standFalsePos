@@ -12,6 +12,7 @@ import { BillingComponent } from './nav/billing/billing.component';
 import { DayEndComponent } from './nav/day-end/day-end.component';
 import { InternacomsComponent } from './nav/internacoms/internacoms.component';
 import { SuppliersComponent } from './nav/suppliers/suppliers.component';
+import { StaffComponent } from './nav/staff/staff.component';
 
 const routes: Routes = [
   { path: '', component: SplashComponent },
@@ -53,6 +54,9 @@ const routes: Routes = [
       },
       {
         path: 'supplier', component: SuppliersComponent
+      },
+      {
+        path: 'staff', component: StaffComponent
       },
   
 

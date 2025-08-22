@@ -4,7 +4,7 @@ import { inject } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 import { Router } from '@angular/router';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AsyncPipe, CommonModule } from '@angular/common';
 import { addDoc, collection, Firestore } from '@angular/fire/firestore';
 import { MatButtonModule } from '@angular/material/button';
@@ -37,6 +37,7 @@ import { CreateUserDialogComponent } from '../globaldialogs/create-user-dialog/c
 export class SplashComponent {
  
 
+  loginForm: FormGroup;
 
   
   
@@ -44,16 +45,27 @@ export class SplashComponent {
 
 
 
-  constructor(public router: Router,
+  constructor(public router: Router, private fb: FormBuilder
     
 
         
     
   ) {
   
-    
+    this.loginForm = this.fb.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required]
+    });
   }
 
+
+  onLogin() {
+    if (this.loginForm.valid) {
+      const { username, password } = this.loginForm.value;
+      // Handle login logic here
+      console.log('Login:', username, password);
+    }
+  }
 
   toAdmin() {
     this.router.navigate(['/hub']);

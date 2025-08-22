@@ -12,46 +12,58 @@
     background-color: rgba(0, 0, 0, 0.8);
     border-radius: 1cm;
     width: 50vw;
-    height: 50vh;
+    height: auto;
     display: flex;
     margin: auto;
-   
+
 }
 
 .logoBlock {
-    background: radial-gradient(circle at 5% 20%,  #0078D7 1%, #00C6D7) 20%;;
     height: 10vw;
     width: 10vw;
     border-radius: 100%;
-    border: 3px solid rgba(0, 0, 0, 0.942);
+    border: 2px solid rgba(0, 0, 0, 0.942);
     box-shadow: 0px 0px 50px #00C6D7;
     margin: auto;
 }
 
 .blockRight {
-        height: 100%;
-        border-radius: 1cm;
-                width: 50%;
+    height: fit-content;
+    border-radius: 1cm;
+    width: 50%;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    padding-left: 2vw;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
 }
 
 .blockleft {
     height: 100%;
-        border-radius: 1cm;
-        width: 40%;
-        align-content: center;
+    border-radius: 1cm;
+    width: 40%;
+    align-content: center;
 }
 
 .module-border-wrap {
-    background: radial-gradient(closest-corner at 3% 50%, #00c5d79e 50%, rgba(128, 0, 128, 0) 150%);
     padding: 3px;
-        border-radius: 1cm;
-        height: fit-content;
+    border-radius: 1cm;
+    height: fit-content;
 }
 
 .module {
     background: #000000dc;
     color: white;
-        border-radius: 1cm;
-                                padding: 1vw;
-                                height: 20vh;
+    border-radius: 1cm;
+    padding: 1vw;
+    height: 20vh;
+}
+
+button {
+    margin-top: 2vh;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
 }

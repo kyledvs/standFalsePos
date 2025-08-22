@@ -18,7 +18,7 @@ export class ExcelRepServiceService {
     const batch = this.firestore.firestore.batch();
     console.log("in service")
     json.forEach((row: any) => {
-      const docRef = this.firestore.collection('reparo').doc().ref;
+      const docRef = this.firestore.collection('stockIndiced').doc('floorE').collection('floorE').doc().ref;
       batch.set(docRef, row);
       console.log("neeeeeeeee")
     });

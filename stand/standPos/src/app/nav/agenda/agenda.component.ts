@@ -15,7 +15,7 @@ import {
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { NewAgendaDialogComponent } from './new-agenda-dialog/new-agenda-dialog.component';
-import { AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 
 interface AgendaInterface {
   headClient: string,
@@ -36,27 +36,24 @@ export class AgendaComponent {
 
   
 
-  agenda$!: Observable<AgendaInterface[]>;
-  firestore: Firestore = inject(Firestore);
+  agenda$!: Observable<any[]>;
 
  
 
-  constructor() {
-    const itemsCollection = collection(this.firestore, 'agenda');
-    this.agenda$ = collectionData(itemsCollection).pipe(
-      map(data => data as AgendaInterface[])
-    );
+  constructor(private firestore: AngularFirestore) {
+    this.agenda$ = this.firestore.collection('agenda').valueChanges();;
+    
   }
 
-  /*getItems(): Observable<Item[]> {
-    return this.itemsCollection.snapshotChanges().pipe(
+  getItems(): Observable<AgendaInterface[]> {
+    return this.firestore.collection<AgendaInterface>('agenda').snapshotChanges().pipe(
       map(actions => actions.map(a => {
-        const data = a.payload.doc.data() as Item;
+        const data = a.payload.doc.data() as AgendaInterface;
         const id = a.payload.doc.id;
         return { id, ...data };
       }))
     );
-  }*/
+  }
 
 
   readonly dialog = inject(MatDialog);

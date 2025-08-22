@@ -1,0 +1,16 @@
+mat-dialog-content {
+    display: flex;
+    flex-direction: column;
+      margin: 2vw;
+      margin-bottom: 0;
+
+}
+
+h2 {
+    color: azure;
+        margin: 2vw;
+        margin-bottom: 0;
+}
+
+
+
