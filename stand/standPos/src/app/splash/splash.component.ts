@@ -27,6 +27,7 @@ import { MatInputModule } from '@angular/material/input';
 
 import { Observable } from 'rxjs';
 import { CreateUserDialogComponent } from '../globaldialogs/create-user-dialog/create-user-dialog.component';
+import { BasicAuthService } from '../services/basic-auth.service';
 
 @Component({
   selector: 'app-splash',
@@ -45,7 +46,7 @@ export class SplashComponent {
 
 
 
-  constructor(public router: Router, private fb: FormBuilder
+  constructor(public router: Router, private fb: FormBuilder, private auth: BasicAuthService
     
 
         
@@ -79,6 +80,23 @@ export class SplashComponent {
     this.dialog.open(CreateUserDialogComponent);
     }
 
- 
+  name = '';
+  password = '';
+
+  
+
+  async login() {
+    const success = await this.auth.login(this.name, this.password);
+    if (success) {
+      const user = this.auth.getUser();
+      if (user && user.role) {
+        this.router.navigate(['/hub']);
+      } else {
+        alert('No role assigned. Access denied.');
+      }
+    } else {
+      alert('Invalid credentials');
+    }
+  }
 
 }

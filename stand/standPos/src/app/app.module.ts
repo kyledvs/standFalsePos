@@ -57,6 +57,7 @@ import { RepairlistComponent } from './nav/repairs/repairlist/repairlist.compone
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+
 import { ClientsComponent } from './nav/clients/clients.component';
 
 import { MatSelectModule } from '@angular/material/select';
@@ -68,6 +69,7 @@ import { SuppliersComponent } from './nav/suppliers/suppliers.component';
 import { CreateRepairDialogComponentComponent } from './nav/repairs/create-repair-dialog-component/create-repair-dialog-component.component';
 import { CreateUserDialogComponent } from './globaldialogs/create-user-dialog/create-user-dialog.component';
 import { StaffComponent } from './nav/staff/staff.component';
+import { DevelopmentOverlayComponent } from './development-overlay/development-overlay.component';
 
 
 
@@ -95,6 +97,7 @@ import { StaffComponent } from './nav/staff/staff.component';
     CreateRepairDialogComponentComponent,
     CreateUserDialogComponent,
     StaffComponent,
+    DevelopmentOverlayComponent,
     
     
 

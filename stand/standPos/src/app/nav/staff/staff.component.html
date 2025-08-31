@@ -1,1 +1,18 @@
-<p>staff works!</p>
+<div class="employee-pending-container">
+    <h2>Pending Employees</h2>
+
+    <div *ngIf="employeePendingList.length === 0">
+        <p>No pending employees found.</p>
+    </div>
+
+    <div *ngFor="let employee of employeePendingList" class="employee-card">
+        <h3>{{ employee.name }}</h3>
+        <p><strong>Branch:</strong> {{ employee.branch }}</p>
+        <p><strong>Status:</strong> {{ employee.confirmedAs }}</p>
+        <p><strong>Password:</strong> {{ employee.password }}</p>
+        <button mat-button color="primary" (click)="promoteToAssistantUser(employee)">Confirm as Assistant</button>
+        <button mat-button color="primary" (click)="promoteToAdminUser(employee)">Confirm as Admin</button>
+        <button mat-button color="primary" (click)="promoteToSuperUser(employee)">Confirm as SuperUser</button>
+        <button mat-button color="warn" (click)="discardEmployee(employee)">Discard</button>
+    </div>
+</div>

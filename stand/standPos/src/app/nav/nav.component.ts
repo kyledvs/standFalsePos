@@ -6,7 +6,9 @@ import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { AuthServiceService } from '../services/auth-service.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { GlobalDataService } from '../services/global-data.service';
-
+import { MatDialog } from '@angular/material/dialog';
+import { DevelopmentOverlayComponent } from '../development-overlay/development-overlay.component';
+import { BasicAuthService } from '../services/basic-auth.service';
 
 
 
@@ -16,6 +18,10 @@ import { GlobalDataService } from '../services/global-data.service';
   styleUrl: './nav.component.css'
 })
 export class NavComponent implements OnInit {
+
+
+  user: any;
+
 
 
 
@@ -28,6 +34,11 @@ export class NavComponent implements OnInit {
       this.globAgendaData = res;
       console.log(this.globAgendaData);
     });
+
+    const stored = sessionStorage.getItem('user');
+    if (stored) {
+      this.user = JSON.parse(stored);
+    }
   }
 
  
@@ -39,7 +50,15 @@ export class NavComponent implements OnInit {
 
   activeMenu: string = "Dashboard";
 
-  constructor(private firestore: AngularFirestore, public router: Router, private route: ActivatedRoute, private firestoreService: AuthServiceService, private globService: GlobalDataService ) {
+  constructor(
+    private firestore: AngularFirestore,
+    public router: Router,
+    private route: ActivatedRoute,
+    private firestoreService: AuthServiceService,
+    private globService: GlobalDataService,
+    private dialog: MatDialog, // <-- Inject MatDialog
+    private bAuth: BasicAuthService,
+  ) {
     
 
   }
@@ -121,6 +140,18 @@ export class NavComponent implements OnInit {
 
     this.router.navigate(['repairs'], { relativeTo: this.route });;
     this.activeMenu = "repairs";
+
+  }
+
+  openDeveloper() {
+   console.log('devbutton')
+    this.router.navigate(['devOver'], { relativeTo: this.route });;
+    this.activeMenu = "devOver";
+  }
+
+  logOut() {
+
+    this.bAuth.logout()
 
   }
 

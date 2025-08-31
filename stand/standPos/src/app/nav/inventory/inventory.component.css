@@ -4,3 +4,13 @@ form {
     gap: 1rem;
     margin-top: 1.5rem;
 }
+
+.floorA-container {
+    padding: 10px;
+}
+
+.doc-card {
+    padding: 3px;
+    margin-bottom: 2px;
+    border-radius: 3px;
+}

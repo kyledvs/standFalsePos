@@ -1,4 +1,5 @@
 <mat-sidenav-container class="sidenav-container">
+
     <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
         [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
 
@@ -11,7 +12,7 @@
             <div class="menuCenter" mat-list-item (click)="toAgenda()"><img class="sideIcon" src="agenda.png">
                 <p>Agenda</p>
             </div>
-            <div  class="menuCenter" mat-list-item (click)="toClients()"><img class="sideIcon" src="clients.png">
+            <div class="menuCenter" mat-list-item (click)="toClients()"><img class="sideIcon" src="clients.png">
                 <p>Clients</p>
             </div>
             <div class="menuCenter" mat-list-item (click)="toInventory()"><img class="sideIcon" src="inventory.png">
@@ -20,7 +21,7 @@
             <div class="menuCenter" mat-list-item (click)="toChecklists()"><img class="sideIcon" src="checlist.png">
                 <p>Checklists</p>
             </div>
-            <div class="menuCenter" mat-list-item (click)="toStaff()"><img class="sideIcon" src="checlist.png">
+            <div class="menuCenter" mat-list-item (click)="toStaff()"><img class="sideIcon" src="empoyee.svg">
                 <p>Staff</p>
             </div>
             <div class="menuCenter" mat-list-item (click)="toReparo()"><img class="sideIcon" src="repair.svg">
@@ -40,6 +41,7 @@
             </div>
 
 
+
         </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
@@ -49,7 +51,16 @@
                 <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
             </button>
             }
-            <span>{{ activeMenu }}</span><span style="width: 70vw;"></span><span><div style="width: 10vw; background-color: rgba(215, 26, 239, 0.495); border-radius: 7mm; "><h2 style="margin: 1vw;">     user </h2></div></span>
+            <span>
+                <div style="font-size: xx-large; margin-top: 2.5vh;">{{ activeMenu }}</div>
+            </span><span style="width: 50vw;"></span><span>
+                <div (click)="openDeveloper()" style="width: 1cm; height: .8cm; display: flex;">
+                    <p>Welcome, {{ user?.name }} ({{ user?.role }})</p>
+                    <img style="width: 1cm; height: .85cm; margin-left: 1 vw; margin-top: .2cm;" src="g6.png">
+
+
+                </div>
+            </span>
         </mat-toolbar>
         <router-outlet></router-outlet>
     </mat-sidenav-content>

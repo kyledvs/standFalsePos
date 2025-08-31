@@ -1,0 +1,77 @@
+<!--<div>
+    <div class="file-drop" (dragover)="onDragOver($event)" (drop)="onDrop($event)" (dragleave)="onDragLeave($event)">
+        <p *ngIf="!selectedFile">Drag & drop a file here, or <label for="fileInput" class="upload-link">browse</label></p>
+        <p *ngIf="selectedFile">{{ selectedFile.name }}</p>
+        <input type="file" id="fileInput" (change)="onFileSelected($event)" hidden />
+    </div>
+</div><div class="customer-container">
+    <h2>Customer List</h2>
+    <ul>
+        <mat-card>
+            
+        
+            <mat-list>
+                <mat-list-item *ngFor="let c of customers">
+                    <div mat-line>{{ c.name }} ({{ c.email }})</div>
+                    <button mat-icon-button color="warn" (click)="deleteCustomer(c.id)" aria-label="Delete customer">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </mat-list-item>
+            </mat-list>
+        
+            <form [formGroup]="customerForm" (ngSubmit)="addCustomer()">
+                <mat-form-field appearance="outline" class="form-field">
+                    <mat-label>Name</mat-label>
+                    <input matInput formControlName="name" />
+                </mat-form-field>
+        
+                <mat-form-field appearance="outline" class="form-field">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email" />
+                </mat-form-field>
+        
+                <button mat-raised-button color="primary" type="submit" [disabled]="customerForm.invalid">
+                    Add Customer
+                </button>
+            </form>
+        </mat-card>
+        <form (ngSubmit)="onInsert()">
+            <label>Name:</label>
+            <input [(ngModel)]="name" name="name" required />
+        
+            <label>Age:</label>
+            <input type="number" [(ngModel)]="age" name="age" required />
+        
+            <button type="submit">Insert</button>
+        </form>-->
+<div style=" margin: 2.5%;">
+
+    <div style="display: flex;">
+        <div><img style="width: 8cm; height: 8cm; margin-left: 1 vw; margin-top: 2vh;" src="sam.svg"></div>
+        <div
+            style="color: rgb(68, 230, 255); font-weight: 900; margin-top: 2cm; margin-bottom: 3cm; font-size: xxx-large; line-height: 150%;">
+            I WANT<br>YOUR<br>INPUT</div>
+    </div>
+    <div>
+        <form style="width: 100%;">
+            <mat-form-field style="width: 100%;" appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput name="name" />
+            </mat-form-field>
+
+
+
+
+        </form>
+    </div>
+
+    <div>
+        <p>Angular frontend</p>
+        <p>front api</p>
+        <p>nest js</p>
+        <p>local sql</p>
+        <p>sysprosql</p>
+        <p>hosted</p>
+    </div>
+
+</div>

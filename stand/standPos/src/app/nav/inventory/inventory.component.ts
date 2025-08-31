@@ -1,26 +1,51 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { PqsqlCustService } from '../../services/pqsql-cust.service';
-
-
-
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Firestore, collection, doc, setDoc } from '@angular/fire/firestore';
+import { inject } from '@angular/core';
+import { BasicAuthService } from '../../services/basic-auth.service';
 
 @Component({
   selector: 'app-inventory',
   templateUrl: './inventory.component.html',
   styleUrl: './inventory.component.css'
 })
-export class InventoryComponent {
+export class InventoryComponent implements OnInit {
+
+
+  showForm = false;
+  newListName = '';
+  skuInput = '';
+
+  toggleForm() {
+    this.showForm = !this.showForm;
+  }
+
+  saveLisst() {
+    const csv = this.skuInput
+      .split('\n')
+      .map(sku => sku.trim() + ',')
+      .join('\n');
+
+    this.firestore.collection('labelsPrint').doc(this.newListName).set({ csv });
+  }
+
 
   stockForm!: FormGroup;
 
- /* constructor(private fb: FormBuilder, private stockDataInsert: PqsqlCustService) { }
+  floorADocs: any[] = [];
+  db: any;
 
-  ngOnInit() {
-    this.stockForm = this.fb.group({
-      items: this.fb.array([])
-    });
-   
+  constructor(private insertService: PqsqlCustService, private fb: FormBuilder, private stockDataInsert: PqsqlCustService, private firestore: AngularFirestore) { }
+
+  ngOnInit(): void {
+    
+    this.firestore.collection('stockIndiced/floorA/floorA', ref => ref.limit(10))
+      .valueChanges({ idField: 'id' })
+      .subscribe(docs => {
+        this.floorADocs = docs;
+      });
   }
 
   get items(): FormArray {
@@ -38,15 +63,48 @@ export class InventoryComponent {
 
   removeItem(index: number) {
     this.items.removeAt(index);
-  }*/
+  }
 
-    stockItems!: []
+  stockItems!: []
 
   sku!: '';
   description!: '';
   price_vat_incl!: '';
 
-  constructor(private insertService: PqsqlCustService) { }
+  firestoreInstance = inject(Firestore);
+  auth = inject(BasicAuthService);
+
+  async saveList(newListName: any) {
+    const user = this.auth.getUser();
+    if (!user || !user.name) {
+      alert('User not logged in');
+      return;
+    }
+    const timestamp = Date.now();
+    const docId = `${user.name}_${timestamp}`;
+
+    // Reference to the main doc in priceLabels
+    const mainDocRef = doc(collection(this.firestoreInstance, 'priceLabels'), docId);
+
+    // Set the main doc with username and timestamp
+    await setDoc(mainDocRef, {
+      username: user.name,
+      timestamp: timestamp,
+      listName: newListName,
+    });
+
+    // Reference to the subcollection 'listSKU' under the main doc
+    const subCollectionRef = collection(mainDocRef, 'listSKU');
+
+    
+
+    // Add a doc with one field "hello"
+    await setDoc(doc(subCollectionRef), { hello: 'world' });
+
+    alert('Label list and SKU doc created!');
+    this.newListName = '';
+    this.showForm = false;
+  }
 
   submitItems() {
     if (this.sku && this.description && this.price_vat_incl !== null) {

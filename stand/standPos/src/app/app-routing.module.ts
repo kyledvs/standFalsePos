@@ -13,13 +13,15 @@ import { DayEndComponent } from './nav/day-end/day-end.component';
 import { InternacomsComponent } from './nav/internacoms/internacoms.component';
 import { SuppliersComponent } from './nav/suppliers/suppliers.component';
 import { StaffComponent } from './nav/staff/staff.component';
+import { RoleGuardService } from './services/role-guard.service';
+import { DevelopmentOverlayComponent } from './development-overlay/development-overlay.component';
 
 const routes: Routes = [
   { path: '', component: SplashComponent },
   {
 
 
-    path: 'hub', component: NavComponent, children: [
+    path: 'hub', component: NavComponent, canActivate: [RoleGuardService], children: [
 
       {
         path: '', component: DashComponent
@@ -58,7 +60,9 @@ const routes: Routes = [
       {
         path: 'staff', component: StaffComponent
       },
-  
+      {
+        path: 'devOver', component: DevelopmentOverlayComponent
+      },
 
       
 
