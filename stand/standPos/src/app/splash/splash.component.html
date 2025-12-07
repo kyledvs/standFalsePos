@@ -1,5 +1,8 @@
 <div class="wrap">
-
+  
+    
+<div style="width: 100vw; height: 100vh ; background-image: url('/DRT.png'); z-index: 9998; position: absolute;background-size: cover;
+    background-repeat: no-repeat;   pointer-events: none;"></div>
     <div class="splashcard">
 
         <div class="blockleft">
@@ -16,8 +19,8 @@
 
                 <form (ngSubmit)="login()">
                     <mat-form-field appearance="outline">
-                        <input matInput [(ngModel)]="name" name="name" placeholder="Email" required /></mat-form-field><mat-form-field
-                        appearance="outline">
+                        <input matInput [(ngModel)]="name" name="name" placeholder="Email"
+                            required /></mat-form-field><mat-form-field appearance="outline">
                         <input matInput [(ngModel)]="password" name="password" type="password" placeholder="Password"
                             required /></mat-form-field>
                     <button mat-flat-button type="submit">Login</button>

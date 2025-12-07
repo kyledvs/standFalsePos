@@ -1,18 +1,32 @@
-<div class="employee-pending-container">
-    <h2>Pending Employees</h2>
+<div style="width:80% ; display: flex;">
+    <div style="width: 40%; height: 20vh; background-color: rgba(0, 255, 255, 0.219); margin-left: 1vh;">
+        <h4>Staff Management</h4>
+                        <button mat-flat-button (click)="openCreateEmployee()">Request Credentials</button>
 
-    <div *ngIf="employeePendingList.length === 0">
-        <p>No pending employees found.</p>
     </div>
+    <div style="width: 40%; height: 20vh; background-color: rgba(153, 0, 255, 0.26); margin-left: 1vh;">
+        <h4>Branch Management</h4>
 
-    <div *ngFor="let employee of employeePendingList" class="employee-card">
-        <h3>{{ employee.name }}</h3>
-        <p><strong>Branch:</strong> {{ employee.branch }}</p>
-        <p><strong>Status:</strong> {{ employee.confirmedAs }}</p>
-        <p><strong>Password:</strong> {{ employee.password }}</p>
-        <button mat-button color="primary" (click)="promoteToAssistantUser(employee)">Confirm as Assistant</button>
-        <button mat-button color="primary" (click)="promoteToAdminUser(employee)">Confirm as Admin</button>
-        <button mat-button color="primary" (click)="promoteToSuperUser(employee)">Confirm as SuperUser</button>
-        <button mat-button color="warn" (click)="discardEmployee(employee)">Discard</button>
+    </div></div>
+    <br>
+    <div>
+        <div class="employee-pending-container">
+            <h3>Pending Employees</h3>
+
+            <div *ngIf="employeePendingList.length === 0">
+                <p>No pending employees found.</p>
+            </div>
+
+            <div *ngFor="let employee of employeePendingList" class="employee-card">
+                <p style="color: rgba(0, 255, 255, 0.658);">{{ employee.name }}</p>
+                <p><strong>Branch:</strong> {{ employee.branch }}</p>
+                <p><strong>Status:</strong> {{ employee.confirmedAs }}</p>
+                <p><strong>Password:</strong> {{ employee.password }}</p>
+                <button mat-button color="primary" (click)="promoteToAssistantUser(employee)">Confirm as
+                    Assistant</button>
+                <button mat-button color="primary" (click)="promoteToAdminUser(employee)">Confirm as Admin</button>
+                <button mat-button color="primary" (click)="promoteToSuperUser(employee)">Confirm as SuperUser</button>
+                <button mat-button color="warn" (click)="discardEmployee(employee)">Discard</button>
+            </div>
+        </div>
     </div>
-</div>

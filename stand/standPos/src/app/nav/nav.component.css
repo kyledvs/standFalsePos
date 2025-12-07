@@ -1,5 +1,7 @@
 .sidenav-container {
     height: 100%;
+    padding-left: 1vh;
+    padding-right: 1vh;
 }
 
 .sidenav {
@@ -30,7 +32,11 @@
 .menuCenter {
     display: flex;
     padding-bottom: 1vh;
+    border-bottom: 1px solid rgba(128, 0, 128, 0.5) ;
     
+}
+.menuCenter:hover {
+    background-color: rgba(0, 255, 255, 0.226);
 }
 p{
     padding-top: 1.25vh;

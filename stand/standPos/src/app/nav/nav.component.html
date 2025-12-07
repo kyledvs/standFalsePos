@@ -6,13 +6,13 @@
         <img style="width: 80%; margin-bottom: 5vh; margin-top: 3vh; margin-left: 2vh;" src="adenlogo.svg">
         <mat-nav-list>
 
-            <div class="menuCenter" mat-list-item (click)="toDash()"><img class="sideIcon" src="hub.png">
+            <div class="menuCenter" mat-list-item (click)="toDash()"><img class="sideIcon" src="dashb.svg">
                 <p>Dashboard</p>
             </div>
             <div class="menuCenter" mat-list-item (click)="toAgenda()"><img class="sideIcon" src="agenda.png">
                 <p>Agenda</p>
             </div>
-            <div class="menuCenter" mat-list-item (click)="toClients()"><img class="sideIcon" src="clients.png">
+            <div class="menuCenter" mat-list-item (click)="toClients()"><img class="sideIcon" src="clients.svg">
                 <p>Clients</p>
             </div>
             <div class="menuCenter" mat-list-item (click)="toInventory()"><img class="sideIcon" src="inventory.png">
@@ -27,7 +27,7 @@
             <div class="menuCenter" mat-list-item (click)="toReparo()"><img class="sideIcon" src="repair.svg">
                 <p>Repairs</p>
             </div>
-            <div class="menuCenter" mat-list-item (click)="toInvoicing()"><img class="sideIcon" src="invoicing.png">
+            <div class="menuCenter" mat-list-item (click)="toInvoicing()"><img class="sideIcon" src="invoo.svg">
                 <p>Invoicing</p>
             </div>
             <div class="menuCenter" mat-list-item (click)="toSuppliers()"><img class="sideIcon" src="supplier.svg">
@@ -36,7 +36,7 @@
             <div class="menuCenter" mat-list-item (click)="toInterna()"><img class="sideIcon" src="comms.svg">
                 <p>Internal Comms</p>
             </div>
-            <div class="menuCenter" mat-list-item (click)="toDayEnd()"><img class="sideIcon" src="daend.png">
+            <div class="menuCenter" mat-list-item (click)="toDayEnd()"><img class="sideIcon" src="daend.svg">
                 <p>Day-End</p>
             </div>
 
@@ -53,10 +53,9 @@
             }
             <span>
                 <div style="font-size: xx-large; margin-top: 2.5vh;">{{ activeMenu }}</div>
-            </span><span style="width: 50vw;"></span><span>
+            </span><span>
                 <div (click)="openDeveloper()" style="width: 1cm; height: .8cm; display: flex;">
-                    <p>Welcome, {{ user?.name }} ({{ user?.role }})</p>
-                    <img style="width: 1cm; height: .85cm; margin-left: 1 vw; margin-top: .2cm;" src="g6.png">
+                    <p>{{ user?.name }} </p>
 
 
                 </div>

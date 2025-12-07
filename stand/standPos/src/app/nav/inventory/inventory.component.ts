@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { PqsqlCustService } from '../../services/pqsql-cust.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Firestore, collection, doc, setDoc } from '@angular/fire/firestore';
+import { Firestore, collection, doc, getDocs, query, setDoc, where } from '@angular/fire/firestore';
 import { inject } from '@angular/core';
 import { BasicAuthService } from '../../services/basic-auth.service';
 
@@ -17,6 +17,7 @@ export class InventoryComponent implements OnInit {
   showForm = false;
   newListName = '';
   skuInput = '';
+userLists: any;
 
   toggleForm() {
     this.showForm = !this.showForm;
@@ -46,6 +47,29 @@ export class InventoryComponent implements OnInit {
       .subscribe(docs => {
         this.floorADocs = docs;
       });
+    this.getUserLists()
+  }
+
+  async getUserLists(): Promise<any[]> {
+    const user = this.auth.getUser();
+    if (!user || !user.name) {
+      alert('User not logged in');
+      return [];
+    }
+
+    const querySnapshot = await getDocs(
+      query(
+        collection(this.firestoreInstance, 'priceLabels'),
+        where('username', '==', user.name)
+      )
+    );
+
+    const userLists = querySnapshot.docs.map(doc => ({
+      id: doc.id,
+      ...doc.data()
+    }));
+
+    return userLists;
   }
 
   get items(): FormArray {

@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { CreateUserDialogComponent } from '../../globaldialogs/create-user-dialog/create-user-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-staff',
@@ -20,36 +22,32 @@ export class StaffComponent {
   }
 
   promoteToSuperUser(employee: any) {
-    // Remove from pendingEmployees
-    this.firestore.collection('pendingEmployees').doc(employee.id).delete().then(() => {
-      // Add to superUsers
-      this.firestore.collection('superUsers').doc(employee.id).set(employee).then(() => {
-        // Optionally, remove from local list to update UI
-        this.employeePendingList = this.employeePendingList.filter(e => e.id !== employee.id);
-      });
+    this.firestore.collection('employeePending').doc(employee.id).delete().then(() => {
+      this.firestore.collection('superUsers').doc(employee.name).set(employee);
     });
   }
 
   promoteToAdminUser(employee: any) {
-    this.firestore.collection('pendingEmployees').doc(employee.id).delete().then(() => {
-      this.firestore.collection('adminUsers').doc(employee.id).set(employee).then(() => {
-        this.employeePendingList = this.employeePendingList.filter(e => e.id !== employee.id);
-      });
+    this.firestore.collection('employeePending').doc(employee.id).delete().then(() => {
+      this.firestore.collection('adminUsers').doc(employee.name).set(employee);
     });
   }
 
   promoteToAssistantUser(employee: any) {
-    this.firestore.collection('pendingEmployees').doc(employee.id).delete().then(() => {
-      this.firestore.collection('assistantUsers').doc(employee.id).set(employee).then(() => {
-        this.employeePendingList = this.employeePendingList.filter(e => e.id !== employee.id);
-      });
+    this.firestore.collection('employeePending').doc(employee.id).delete().then(() => {
+      this.firestore.collection('assistantUsers').doc(employee.name).set(employee);
     });
   }
 
   discardEmployee(employee: any) {
-    this.firestore.collection('pendingEmployees').doc(employee.id).delete().then(() => {
-      this.employeePendingList = this.employeePendingList.filter(e => e.id !== employee.id);
-    });
+    this.firestore.collection('employeePending').doc(employee.id).delete();
   }
+
+
+    readonly dialog = inject(MatDialog);
+  
+    openCreateEmployee(): void {
+      this.dialog.open(CreateUserDialogComponent);
+      }
 
 }

@@ -13,6 +13,8 @@ export class UploadrepairxlsComponent {
   onFileChange(event: any) {
     const file = event.target.files[0];
     if (file) this.ExcelRepServiceService.uploadExcelToFirestore(file);
+    if (file) this.ExcelRepServiceService.uploadExcelToFirestoreMaster(file);
+
     console.log("uploaded a file")
   }
 
@@ -20,6 +22,7 @@ export class UploadrepairxlsComponent {
     event.preventDefault();
     const file = event.dataTransfer?.files[0];
     if (file) this.ExcelRepServiceService.uploadExcelToFirestore(file);
+    if (file) this.ExcelRepServiceService.uploadExcelToFirestoreMaster(file);
     console.log("dragged a file")
   }
 
